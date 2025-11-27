@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
+import { EnergyFormComponent } from './components/energy-form/energy-form.component';
+import { RecommendationsComponent } from './components/recommendations/recommendations.component';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.routes').then(m => m.WELCOME_ROUTES) }
+  { path: '', component: EnergyFormComponent },
+  { path: 'recomendaciones', component: RecommendationsComponent },
+  {path: 'formenergy', component: EnergyFormComponent }
 ];

@@ -1,1 +1,11 @@
-<p>recommendations works!</p>
+<button nz-button nzType="default" routerLink="/formenergy" style="margin-bottom: 20px;">
+  Regresar al formulario
+</button>
+
+<nz-card nzTitle="Recomendaciones generadas">
+  <ul>
+    <li *ngFor="let r of recomendaciones">
+      <nz-tag nzColor="green">{{ r }}</nz-tag>
+    </li>
+  </ul>
+</nz-card>

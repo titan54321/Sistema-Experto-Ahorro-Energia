@@ -1,1 +1,56 @@
-<p>energy-form works!</p>
+<nz-card nzTitle="Datos del hogar">
+
+  <form nz-form [nzLayout]="'vertical'" (ngSubmit)="procesar()">
+
+    <nz-form-item>
+      <nz-form-label>Tipo de focos</nz-form-label>
+      <nz-form-control>
+        <nz-select [(ngModel)]="form.focos" name="focos">
+          <nz-option nzValue="led" nzLabel="LED"></nz-option>
+          <nz-option nzValue="incandescentes" nzLabel="Incandescentes"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>¿Tiene aire acondicionado?</nz-form-label>
+      <nz-form-control>
+        <nz-switch [(ngModel)]="form.aireAcondicionado" name="aireAcondicionado"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="form.aireAcondicionado">
+      <nz-form-label>Horas de uso</nz-form-label>
+      <nz-form-control>
+        <input nz-input type="number" [(ngModel)]="form.usoAire" name="usoAire">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Consumo total (watts)</nz-form-label>
+      <nz-form-control>
+        <input nz-input type="number" [(ngModel)]="form.wattsTotales" name="wattsTotales">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>¿Apaga luces normalmente?</nz-form-label>
+      <nz-form-control>
+        <nz-switch [(ngModel)]="form.apagaLuces" name="apagaLuces"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>¿El refrigerador es viejo?</nz-form-label>
+      <nz-form-control>
+        <nz-switch [(ngModel)]="form.refriViejo" name="refriViejo"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
+
+    <button nz-button nzType="primary">Obtener recomendaciones</button>
+    <button nz-button nzType="default" routerLink="/recomendaciones">
+  Ver recomendaciones
+</button>
+  </form>
+
+</nz-card>
